@@ -29,14 +29,14 @@ namespace BibliotecaAPI.Services
                     {
                         libros.Add(new LibroModel
                         {
-                            id_libro = (int)reader["Id"],
-                            titulo = reader["Titulo"].ToString(),
-                            autor = reader["Autor"].ToString(),
-                            editorial = reader["Editorial"].ToString(),
-                            isbn = reader["ISBN"].ToString(),
-                            anio = (int)reader["Anio"],
-                            categoria = reader["Categoria"].ToString(),
-                            stock = (int)reader["Existencias"]
+                            Id = (int)reader["Id"],
+                            Titulo = reader["Titulo"].ToString(),
+                            Autor = reader["Autor"].ToString(),
+                            Editorial = reader["Editorial"].ToString(),
+                            ISBN = reader["ISBN"].ToString(),
+                            Anio = (int)reader["Anio"],
+                            Categoria = reader["Categoria"].ToString(),
+                            Stock = (int)reader["Stock"]
                         });
                     }
                 }
@@ -63,14 +63,14 @@ namespace BibliotecaAPI.Services
                         {
                             libro = new LibroModel
                             {
-                                id_libro = (int)reader["Id"],
-                                titulo = reader["Titulo"].ToString(),
-                                autor = reader["Autor"].ToString(),
-                                editorial = reader["Editorial"].ToString(),
-                                isbn = reader["ISBN"].ToString(),
-                                anio = (int)reader["Anio"],
-                                categoria = reader["Categoria"].ToString(),
-                                stock = (int)reader["Existencias"]
+                                Id = (int)reader["Id"],
+                                Titulo = reader["Titulo"].ToString(),
+                                Autor = reader["Autor"].ToString(),
+                                Editorial = reader["Editorial"].ToString(),
+                                ISBN = reader["ISBN"].ToString(),
+                                Anio = (int)reader["Anio"],
+                                Categoria = reader["Categoria"].ToString(),
+                                Stock = (int)reader["Stock"]
                             };
                             break;
                         }
@@ -87,13 +87,13 @@ namespace BibliotecaAPI.Services
             using (SqlCommand cmd = new SqlCommand("InsertarLibro", con))
             {
                 cmd.CommandType = CommandType.StoredProcedure;
-                cmd.Parameters.AddWithValue("@Titulo", libro.titulo);
-                cmd.Parameters.AddWithValue("@Autor", libro.autor);
-                cmd.Parameters.AddWithValue("@Editorial", libro.editorial);
-                cmd.Parameters.AddWithValue("@ISBN", libro.isbn);
-                cmd.Parameters.AddWithValue("@Anio", libro.anio);
-                cmd.Parameters.AddWithValue("@Categoria", libro.categoria);
-                cmd.Parameters.AddWithValue("@Existencias", libro.stock);
+                cmd.Parameters.AddWithValue("@Titulo", libro.Titulo);
+                cmd.Parameters.AddWithValue("@Autor", libro.Autor);
+                cmd.Parameters.AddWithValue("@Editorial", libro.Editorial);
+                cmd.Parameters.AddWithValue("@ISBN", libro.ISBN);
+                cmd.Parameters.AddWithValue("@Anio", libro.Anio);
+                cmd.Parameters.AddWithValue("@Categoria", libro.Categoria);
+                cmd.Parameters.AddWithValue("@Stock", libro.Stock);
 
                 await con.OpenAsync();
                 await cmd.ExecuteNonQueryAsync();
@@ -107,13 +107,13 @@ namespace BibliotecaAPI.Services
             {
                 cmd.CommandType = CommandType.StoredProcedure;
                 cmd.Parameters.AddWithValue("@Id", id);
-                cmd.Parameters.AddWithValue("@Titulo", libro.titulo);
-                cmd.Parameters.AddWithValue("@Autor", libro.autor);
-                cmd.Parameters.AddWithValue("@Editorial", libro.editorial);
-                cmd.Parameters.AddWithValue("@ISBN", libro.isbn);
-                cmd.Parameters.AddWithValue("@Anio", libro.anio);
-                cmd.Parameters.AddWithValue("@Categoria", libro.categoria);
-                cmd.Parameters.AddWithValue("@Existencias", libro.stock);
+                cmd.Parameters.AddWithValue("@Titulo", libro.Titulo);
+                cmd.Parameters.AddWithValue("@Autor", libro.Autor);
+                cmd.Parameters.AddWithValue("@Editorial", libro.Editorial);
+                cmd.Parameters.AddWithValue("@ISBN", libro.ISBN);
+                cmd.Parameters.AddWithValue("@Anio", libro.Anio);
+                cmd.Parameters.AddWithValue("@Categoria", libro.Categoria);
+                cmd.Parameters.AddWithValue("@Stock", libro.Stock);
 
                 await con.OpenAsync();
                 int rows = await cmd.ExecuteNonQueryAsync();

@@ -29,12 +29,12 @@ namespace BibliotecaAPI.Services
                     {
                         prestamos.Add(new PrestamoModel
                         {
-                            id_prestamo = (int)reader["Id"],
-                            id_usuario = (int)reader["IdUsuario"],
-                            id_libro = (int)reader["IdLibro"],
-                            fecha_devolucion_esperada = (DateTime)reader["FechaDevolucionEsperada"],
-                            fecha_devolucion_real = reader["FechaDevolucionReal"] as DateTime?,
-                            estado = reader["Estado"].ToString()
+                            Id = (int)reader["Id"],
+                            IdUsuario = (int)reader["IdUsuario"],
+                            IdLibro = (int)reader["IdLibro"],
+                            FechaDevolucionEsperada = (DateTime)reader["FechaDevolucionEsperada"],
+                            FechaDevolucionReal = reader["FechaDevolucionReal"] as DateTime?,
+                            Estado = reader["Estado"].ToString()
                         });
                     }
                 }
@@ -49,10 +49,10 @@ namespace BibliotecaAPI.Services
             using (SqlCommand cmd = new SqlCommand("RegistrarPrestamo", con))
             {
                 cmd.CommandType = CommandType.StoredProcedure;
-                cmd.Parameters.AddWithValue("@IdUsuario", prestamo.id_usuario);
-                cmd.Parameters.AddWithValue("@IdLibro", prestamo.id_libro);
-                cmd.Parameters.AddWithValue("@FechaDevolucionEsperada", prestamo.fecha_devolucion_esperada);
-                cmd.Parameters.AddWithValue("@Estado", prestamo.estado);
+                cmd.Parameters.AddWithValue("@IdUsuario", prestamo.IdUsuario);
+                cmd.Parameters.AddWithValue("@IdLibro", prestamo.IdLibro);
+                cmd.Parameters.AddWithValue("@FechaDevolucionEsperada", prestamo.FechaDevolucionEsperada);
+                cmd.Parameters.AddWithValue("@Estado", prestamo.Estado);
 
                 await con.OpenAsync();
                 await cmd.ExecuteNonQueryAsync();
@@ -66,8 +66,8 @@ namespace BibliotecaAPI.Services
             {
                 cmd.CommandType = CommandType.StoredProcedure;
                 cmd.Parameters.AddWithValue("@Id", id);
-                cmd.Parameters.AddWithValue("@FechaDevolucionReal", prestamo.fecha_devolucion_real ?? (object)DBNull.Value);
-                cmd.Parameters.AddWithValue("@Estado", prestamo.estado);
+                cmd.Parameters.AddWithValue("@FechaDevolucionReal", prestamo.FechaDevolucionReal ?? (object)DBNull.Value);
+                cmd.Parameters.AddWithValue("@Estado", prestamo.Estado);
 
                 await con.OpenAsync();
                 int rows = await cmd.ExecuteNonQueryAsync();
