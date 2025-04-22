@@ -1,6 +1,6 @@
 ﻿namespace BibliotecaAPI.Models
 {
-    public class Usuario
+    public class UsuarioModel
     {
         public int id_usuario { get; set; }
         public string nombre { get; set; }
