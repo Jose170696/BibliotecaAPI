@@ -2,13 +2,13 @@
 {
     public class UsuarioModel
     {
-        public int id_usuario { get; set; }
-        public string nombre { get; set; }
-        public string apellido { get; set; }
-        public string correo { get; set; }
-        public string telefono { get; set; }
-        public string tipo_usuario { get; set; }
-        public string clave { get; set; }
+        public int Id { get; set; }
+        public string Nombre { get; set; }
+        public string Apellido { get; set; }
+        public string Correo { get; set; }
+        public string Telefono { get; set; }
+        public string Tipo_usuario { get; set; }
+        public string Clave { get; set; }
 
         //public DateTime? fecha_adicion { get; set; }
         //public string? adicionado_por { get; set; }

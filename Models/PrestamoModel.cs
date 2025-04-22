@@ -2,12 +2,12 @@
 {
     public class PrestamoModel
     {
-        public int id_prestamo { get; set; }
-        public int id_usuario { get; set; }
-        public int id_libro { get; set; }
-        public DateTime fecha_prestamo { get; set; }
-        public DateTime fecha_devolucion_esperada { get; set; }
-        public DateTime? fecha_devolucion_real { get; set; }
-        public string estado { get; set; }
+        public int Id { get; set; }
+        public int IdUsuario { get; set; }
+        public int IdLibro { get; set; }
+        public DateTime FechaPrestamo { get; set; }
+        public DateTime FechaDevolucionEsperada { get; set; }
+        public DateTime? FechaDevolucionReal { get; set; }
+        public string Estado { get; set; }
     }
 }

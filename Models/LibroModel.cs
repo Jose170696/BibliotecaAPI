@@ -3,14 +3,14 @@
     public class LibroModel
     {
 
-        public int id_libro { get; set; }
-        public string titulo { get; set; }
-        public string autor { get; set; }
-        public string editorial { get; set; }
-        public string isbn { get; set; }
-        public int anio { get; set; }
-        public string categoria { get; set; }
-        public int stock { get; set; }
+        public int Id { get; set; }
+        public string Titulo { get; set; }
+        public string Autor { get; set; }
+        public string Editorial { get; set; }
+        public string ISBN { get; set; }
+        public int Anio { get; set; }
+        public string Categoria { get; set; }
+        public int Stock { get; set; }
     }
 
 }

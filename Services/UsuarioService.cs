@@ -31,13 +31,13 @@ namespace BibliotecaAPI.Services
                     {
                         usuario = new UsuarioModel
                         {
-                            id_usuario = (int)reader["Id"],
-                            nombre = reader["Nombre"].ToString(),
-                            apellido = reader["Apellido"].ToString(),
-                            correo = reader["Correo"].ToString(),
-                            telefono = reader["Telefono"].ToString(),
-                            tipo_usuario = reader["TipoUsuario"].ToString(),
-                            clave = reader["Clave"].ToString()
+                            Id = (int)reader["Id"],
+                            Nombre = reader["Nombre"].ToString(),
+                            Apellido = reader["Apellido"].ToString(),
+                            Correo = reader["Correo"].ToString(),
+                            Telefono = reader["Telefono"].ToString(),
+                            Tipo_usuario = reader["TipoUsuario"].ToString(),
+                            Clave = reader["Clave"].ToString()
                         };
                     }
                 }
@@ -64,13 +64,13 @@ namespace BibliotecaAPI.Services
                         {
                             usuario = new UsuarioModel
                             {
-                                id_usuario = (int)reader["Id"],
-                                nombre = reader["Nombre"].ToString(),
-                                apellido = reader["Apellido"].ToString(),
-                                correo = reader["Correo"].ToString(),
-                                telefono = reader["Telefono"].ToString(),
-                                tipo_usuario = reader["TipoUsuario"].ToString(),
-                                clave = reader["Clave"].ToString()
+                                Id = (int)reader["Id"],
+                                Nombre = reader["Nombre"].ToString(),
+                                Apellido = reader["Apellido"].ToString(),
+                                Correo = reader["Correo"].ToString(),
+                                Telefono = reader["Telefono"].ToString(),
+                                Tipo_usuario = reader["TipoUsuario"].ToString(),
+                                Clave = reader["Clave"].ToString()
                             };
                             break;
                         }
@@ -97,13 +97,13 @@ namespace BibliotecaAPI.Services
                     {
                         usuarios.Add(new UsuarioModel
                         {
-                            id_usuario = (int)reader["Id"],
-                            nombre = reader["Nombre"].ToString(),
-                            apellido = reader["Apellido"].ToString(),
-                            correo = reader["Correo"].ToString(),
-                            telefono = reader["Telefono"].ToString(),
-                            tipo_usuario = reader["TipoUsuario"].ToString(),
-                            clave = reader["Clave"].ToString()
+                            Id = (int)reader["Id"],
+                            Nombre = reader["Nombre"].ToString(),
+                            Apellido = reader["Apellido"].ToString(),
+                            Correo = reader["Correo"].ToString(),
+                            Telefono = reader["Telefono"].ToString(),
+                            Tipo_usuario = reader["TipoUsuario"].ToString(),
+                            Clave = reader["Clave"].ToString()
                         });
                     }
                 }
@@ -118,12 +118,12 @@ namespace BibliotecaAPI.Services
             using (SqlCommand cmd = new SqlCommand("InsertarUsuario", con))
             {
                 cmd.CommandType = CommandType.StoredProcedure;
-                cmd.Parameters.AddWithValue("@Nombre", usuario.nombre);
-                cmd.Parameters.AddWithValue("@Apellido", usuario.apellido);
-                cmd.Parameters.AddWithValue("@Correo", usuario.correo);
-                cmd.Parameters.AddWithValue("@Telefono", usuario.telefono);
-                cmd.Parameters.AddWithValue("@TipoUsuario", usuario.tipo_usuario);
-                cmd.Parameters.AddWithValue("@Clave", usuario.clave);
+                cmd.Parameters.AddWithValue("@Nombre", usuario.Nombre);
+                cmd.Parameters.AddWithValue("@Apellido", usuario.Apellido);
+                cmd.Parameters.AddWithValue("@Correo", usuario.Correo);
+                cmd.Parameters.AddWithValue("@Telefono", usuario.Telefono);
+                cmd.Parameters.AddWithValue("@TipoUsuario", usuario.Tipo_usuario);
+                cmd.Parameters.AddWithValue("@Clave", usuario.Clave);
 
                 await con.OpenAsync();
                 await cmd.ExecuteNonQueryAsync();
@@ -137,12 +137,12 @@ namespace BibliotecaAPI.Services
             {
                 cmd.CommandType = CommandType.StoredProcedure;
                 cmd.Parameters.AddWithValue("@Id", id);
-                cmd.Parameters.AddWithValue("@Nombre", usuario.nombre);
-                cmd.Parameters.AddWithValue("@Apellido", usuario.apellido);
-                cmd.Parameters.AddWithValue("@Correo", usuario.correo);
-                cmd.Parameters.AddWithValue("@Telefono", usuario.telefono);
-                cmd.Parameters.AddWithValue("@TipoUsuario", usuario.tipo_usuario);
-                cmd.Parameters.AddWithValue("@Clave", usuario.clave);
+                cmd.Parameters.AddWithValue("@Nombre", usuario.Nombre);
+                cmd.Parameters.AddWithValue("@Apellido", usuario.Apellido);
+                cmd.Parameters.AddWithValue("@Correo", usuario.Correo);
+                cmd.Parameters.AddWithValue("@Telefono", usuario.Telefono);
+                cmd.Parameters.AddWithValue("@TipoUsuario", usuario.Tipo_usuario);
+                cmd.Parameters.AddWithValue("@Clave", usuario.Clave);
 
                 await con.OpenAsync();
                 int rows = await cmd.ExecuteNonQueryAsync();
