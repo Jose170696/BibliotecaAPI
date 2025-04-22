@@ -15,7 +15,7 @@ namespace BibliotecaAPI.Controllers
         {
             _usuarioService = usuarioService;
         }
-    
+
         [HttpGet]
 
         public async Task<ActionResult<List<UsuarioModel>>> ObtenerUsusarios()
@@ -39,7 +39,7 @@ namespace BibliotecaAPI.Controllers
 
         [HttpPost("validar")]
 
-        public async Task<ActionResult<UsuarioModel>> ValidarUsuario([FromQuery] string correo,[FromQuery] string clave)
+        public async Task<ActionResult<UsuarioModel>> ValidarUsuario([FromQuery] string correo, [FromQuery] string clave)
         {
             var usuario = await _usuarioService.ValidarUsuarioAsync(correo, clave);
             if (usuario == null)
@@ -53,7 +53,7 @@ namespace BibliotecaAPI.Controllers
         public async Task<ActionResult> CrearUsuario([FromBody] UsuarioModel usuario)
         {
             await _usuarioService.CrearUsuarioAsync(usuario);
-            return CreatedAtAction(nameof(ObtenerUsuariosPorId), new { id = usuario.Id},usuario);
+            return CreatedAtAction(nameof(ObtenerUsuariosPorId), new { id = usuario.Id }, usuario);
         }
         [HttpPut("{id}")]
 
@@ -71,14 +71,13 @@ namespace BibliotecaAPI.Controllers
 
         public async Task<ActionResult> EliminarUsuario(int id)
         {
-            var eliminado = await { _usuarioService.EliminarUsuarioAsync(id);
-                if (!eliminado)
+            var eliminado = await _usuarioService.EliminarUsuarioAsync(id);
+            if (!eliminado)
 
-                {
-                    return NotFound();
-                }
-                return NoContent();
+            {
+                return NotFound();
             }
+            return NoContent();
         }
       
 
