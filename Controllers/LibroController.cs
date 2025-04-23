@@ -61,12 +61,5 @@ namespace BibliotecaAPI.Controllers
             }
             return Ok("Libro eliminado de manera correcta");
         }
-
-
-
-        public IActionResult Index()
-        {
-            return View();
-        }
     }
 }

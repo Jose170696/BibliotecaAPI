@@ -79,12 +79,6 @@ namespace BibliotecaAPI.Controllers
             }
             return NoContent();
         }
-      
-
-        public IActionResult Index()
-        {
-            return View();
-        }
     }
 }
 
