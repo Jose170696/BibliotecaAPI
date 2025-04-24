@@ -29,7 +29,7 @@ namespace BibliotecaAPI.Controllers
         public async Task<ActionResult> RegistrarPrestamo([FromBody] PrestamoModel prestamo)
         {
             await _prestamoService.RegistrarPrestamoAsync(prestamo);
-            return CreatedAtAction(nameof(ObtenerPrestamos), new { id = prestamo.id_prestamo }, prestamo);
+            return CreatedAtAction(nameof(ObtenerPrestamos), new { id = prestamo.Id }, prestamo);
         }
 
         // PUT: api/prestamo/{id}
