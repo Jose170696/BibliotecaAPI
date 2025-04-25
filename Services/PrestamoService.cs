@@ -32,6 +32,7 @@ namespace BibliotecaAPI.Services
                             Id = (int)reader["Id"],
                             IdUsuario = (int)reader["IdUsuario"],
                             IdLibro = (int)reader["IdLibro"],
+                            FechaPrestamo = (DateTime)reader["FechaPrestamo"],
                             FechaDevolucionEsperada = (DateTime)reader["FechaDevolucionEsperada"],
                             FechaDevolucionReal = reader["FechaDevolucionReal"] as DateTime?,
                             Estado = reader["Estado"].ToString()
@@ -51,6 +52,7 @@ namespace BibliotecaAPI.Services
                 cmd.CommandType = CommandType.StoredProcedure;
                 cmd.Parameters.AddWithValue("@IdUsuario", prestamo.IdUsuario);
                 cmd.Parameters.AddWithValue("@IdLibro", prestamo.IdLibro);
+                cmd.Parameters.AddWithValue("@FechaPrestamo", prestamo.FechaPrestamo);
                 cmd.Parameters.AddWithValue("@FechaDevolucionEsperada", prestamo.FechaDevolucionEsperada);
                 cmd.Parameters.AddWithValue("@Estado", prestamo.Estado);
 
