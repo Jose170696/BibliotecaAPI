@@ -24,6 +24,16 @@ namespace BibliotecaAPI.Controllers
             return Ok(prestamos);
         }
 
+        // GET: api/prestamo/{id}
+        [HttpGet("{id}")]
+        public async Task<ActionResult<PrestamoModel>> ObtenerPrestamoPorId(int id)
+        {
+            var modelo = await _prestamoService.ObtenerPrestamoPorIdAsync(id);
+            if (modelo == null)
+                return NotFound($"No se encontró préstamo con Id = {id}");
+            return Ok(modelo);
+        }
+
         // POST: api/prestamo
         [HttpPost]
         public async Task<ActionResult> RegistrarPrestamo([FromBody] PrestamoModel prestamo)

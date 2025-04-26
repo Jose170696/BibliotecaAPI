@@ -44,6 +44,13 @@ namespace BibliotecaAPI.Services
             return prestamos;
         }
 
+        // Obtener préstamo por id
+        public async Task<PrestamoModel> ObtenerPrestamoPorIdAsync(int id)
+        {
+            // Reutilizar el SP de ObtenerPrestamos
+            var todos = await ObtenerPrestamosAsync();
+            return todos.FirstOrDefault(p => p.Id == id);
+        }
         public async Task RegistrarPrestamoAsync(PrestamoModel prestamo)
         {
             using (SqlConnection con = new SqlConnection(_connectionString))
